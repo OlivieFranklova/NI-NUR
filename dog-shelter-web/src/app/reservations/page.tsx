@@ -1,3 +1,6 @@
 export default function DogsPage(){
-    return <h3>Nabídka psu na venčení</h3>;
+    return <div>
+        <h3>Moje rezervace venčení</h3>
+
+    </div>;
 }

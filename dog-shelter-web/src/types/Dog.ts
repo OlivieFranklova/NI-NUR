@@ -1,21 +1,23 @@
+import {StaticImageData} from "next/image";
 
-enum AttentionNeedEnum{
-    small,
-    medium,
-    large
+export enum AttentionNeedEnum{
+    Small,
+    Medium,
+    Large
 }
-enum SizeEnum{
-    small,
-    medium,
-    large
+export enum SizeEnum{
+    Small,
+    Medium,
+    Large
 }
-enum SexEnum{
+export enum SexEnum{
     Female,
     Male
 }
 export type Dog ={
-    photoSrc:String;
+    photoSrc:StaticImageData;
     name: String,
+    description:String;
     age: Number,
     sex:SexEnum,
     needForAttention: AttentionNeedEnum,

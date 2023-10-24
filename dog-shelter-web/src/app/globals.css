@@ -31,3 +31,22 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+}
+.dogCard{
+  height: 440px;
+  display: flex;
+  width: 310px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.dogCardImage{
+  height: 210px;
+}

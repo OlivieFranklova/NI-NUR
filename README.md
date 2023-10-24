@@ -5,4 +5,5 @@ Mnoho útulků se potýká s problémem nedostatku personálu pro venčení pejs
 
 Bude se jednat o webovou aplikaci kde bude probíhat výběr a následná rezervace pejsků. Aplikaci budou využívat lidé jakéhokoli pohlaví i věku. Služba bude pomáhat útulkům s nedostatkem personálu a bude umožňovat lidem venčit pejska i když žádného nemůžou vlastnit.
 
-## React 
+## React + Next
+Spusteni aplikace : v priečinku `dog-shelter-web` run ```npm run dev``` or ```yarn run```
