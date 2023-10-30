@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dba82a4a-b429-49df-9d97-9f6c8afa3702" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/app/dogs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/app/dogs/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/app/reservations/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/app/reservations/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/components/DogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/components/DogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/data/Database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/data/Database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/types/Dog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/types/Dog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,22 +30,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/School/FIT/NUR/ni-nur/dog-shelter-web/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\School\\FIT\\NUR\\ni-nur\\dog-shelter-web\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/School/FIT/NUR/ni-nur/dog-shelter-web/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\School\\FIT\\NUR\\ni-nur\\dog-shelter-web\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\School\FIT\NUR\ni-nur\dog-shelter-web\public" />
@@ -63,7 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1697557132092</updated>
       <workItem from="1697557138161" duration="63000" />
-      <workItem from="1698139098447" duration="4401000" />
+      <workItem from="1698139098447" duration="4528000" />
+      <workItem from="1698663723365" duration="3253000" />
     </task>
     <servers />
   </component>

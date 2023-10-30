@@ -19,7 +19,7 @@ export default function DogsPage(){
     return <div>
         <Typography variant="h3">Nabídka psu na venčení</Typography>
         <div>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} className='grid'>
                 {dogsList.slice(0, cardsPerPage).map((dog, index) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                         <DogCard dogData={dog} />
