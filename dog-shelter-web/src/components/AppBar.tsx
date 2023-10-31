@@ -79,11 +79,23 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+
+                                <MenuItem  onClick={handleCloseUserMenu}>
+                                    <Link href="/reservations" >
+                                    <Typography textAlign="center">Moje rezervace</Typography>
+                                    </Link>
                                 </MenuItem>
-                            ))}
+                            <MenuItem  onClick={handleCloseUserMenu}>
+
+                                <Typography textAlign="center">Upravit profil</Typography>
+
+                            </MenuItem>
+                            <MenuItem  onClick={handleCloseUserMenu}>
+
+                                <Typography textAlign="center">Odhlasit se</Typography>
+
+                            </MenuItem>
+
                         </Menu>
                     </Box>
                 </Toolbar>

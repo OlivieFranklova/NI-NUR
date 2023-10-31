@@ -4,6 +4,8 @@ import dog2 from "@/resources/dog_images/dog2.jpg"
 import dog3 from "@/resources/dog_images/dog3.jpg"
 import dog4 from "@/resources/dog_images/dog4.jpg"
 import dog5 from "@/resources/dog_images/dog5.jpg"
+import {Reservation} from "@/types/Reservation";
+
 export var dogs:Dog[]=[  {
     photoSrc:dog1  ,
     name: 'Rex',
@@ -115,3 +117,8 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-10-25'), new Date('2023-10-27')],
     },
 ];
+export var reservations:Reservation[]=[
+    {dateTime:new Date(1698746240628),dog:dogs[0],id:1},
+    {dateTime:new Date(1698746240678),dog:dogs[1],id:2},
+    {dateTime: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),dog:dogs[0],id:3}
+]
