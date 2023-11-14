@@ -10,6 +10,12 @@ export enum SortField {
     NeedForAttentionReversed
 }
 
+const reversedSorts = [
+    SortField.SizeReversed,
+    SortField.SuitabilityReversed,
+    SortField.NeedForAttentionReversed
+]
+
 export class Sort implements Filter {
     sortField?: SortField = undefined
 
@@ -42,12 +48,48 @@ export class Sort implements Filter {
     ]
 
     apply(dogs: Dog[]): Dog[] {
-        // TODO
-        throw Error("Not implemented")
+        if (this.sortField === undefined) {
+            return dogs
+        }
+
+        let sortedDogs: Dog[] = []
+
+        switch (this.sortField) {
+            case SortField.Size:
+            case SortField.SizeReversed:
+                sortedDogs = dogs.sort((lhs, rhs) => {
+                    return lhs.size - rhs.size
+                })
+                break
+            case SortField.Suitability:
+            case SortField.SuitabilityReversed:
+                sortedDogs = dogs.sort((lhs, rhs) => {
+                    if (lhs.suitableForEveryone && !rhs.suitableForEveryone) return -1
+                    if (!lhs.suitableForEveryone && rhs.suitableForEveryone) return 1
+                    return 0
+                })
+                break
+            case SortField.NeedForAttention:
+            case SortField.NeedForAttentionReversed:
+                sortedDogs = dogs.sort((lhs, rhs) => {
+                    if (lhs.needForAttention < rhs.needForAttention) return -1
+                    if (lhs.needForAttention > rhs.needForAttention) return 1
+                    return 0
+                })
+                break
+            default:
+                throw new Error("Unknown SortField type.")
+        }
+
+        if (reversedSorts.includes(this.sortField)) {
+            sortedDogs = sortedDogs.reverse()
+        }
+
+        return sortedDogs
     }
 
     copy(value: any): Filter {
-        if (typeof value !== "number") {
+        if (value !== undefined && typeof value !== "number") {
             throw new Error("Value is not a number.")
         }
 

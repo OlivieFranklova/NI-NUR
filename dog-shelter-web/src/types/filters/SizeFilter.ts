@@ -34,7 +34,7 @@ export class SizeFilter implements Filter {
     }
 
     copy(value: any): Filter {
-        if (typeof value !== "number") {
+        if (value !== undefined && typeof value !== "number") {
             throw new Error("Value is not a number.")
         }
 

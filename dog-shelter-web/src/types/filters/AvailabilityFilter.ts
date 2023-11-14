@@ -25,12 +25,15 @@ export class AvailabilityFilter implements Filter {
         }
 
         return dogs.filter((value: Dog) => {
-            return value.availability.includes(this.availability!)
+            return value
+                .availability
+                .map((d) => d.getTime())
+                .includes(this.availability!.getTime())
         })
     }
 
     copy(value: any): Filter {
-        if (value !instanceof Date) {
+        if (value !== undefined && !(value instanceof Date)) {
             throw new Error("Value is not a number.")
         }
 

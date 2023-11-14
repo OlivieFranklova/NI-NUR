@@ -5,7 +5,7 @@ import {Dog} from "@/types/Dog";
 export class SuitabilityFilter implements Filter {
     suitableForEveryone: Boolean = true
 
-    static filterName = "Potřeba venčení"
+    static filterName = "Vhodný pro"
     static choices = [
         {
             key: true,
@@ -32,6 +32,10 @@ export class SuitabilityFilter implements Filter {
     }
 
     copy(value: any): Filter {
+        if (value === undefined) {
+            return new SuitabilityFilter()
+        }
+
         return new SuitabilityFilter(!!value);
     }
 

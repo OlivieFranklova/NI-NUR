@@ -10,6 +10,8 @@ import {SizeFilter} from "@/types/filters/SizeFilter";
 import {Filter} from "@/types/filters/Filter";
 import {SuitabilityFilter} from "@/types/filters/SuitabilityFilter";
 import {NeedForAttentionFilter} from "@/types/filters/NeedForAttentionFilter";
+import {Sort} from "@/types/filters/Sort";
+import {AvailabilityFilter} from "@/types/filters/AvailabilityFilter";
 const initialCardsPerPage=8;
 export default function DogsPage(){
 
@@ -17,6 +19,8 @@ export default function DogsPage(){
     const [cardsPerPage, setCardsPerPage] = useState(initialCardsPerPage);
 
     const [filters, setFilters] = useState([
+        new Sort(),
+        new AvailabilityFilter(),
         new SizeFilter(),
         new SuitabilityFilter(),
         new NeedForAttentionFilter()
@@ -38,7 +42,7 @@ export default function DogsPage(){
         setCardsPerPage(initialCardsPerPage)
     }
 
-    let dogsFiltered = dogsList
+    let dogsFiltered = [...dogsList]
     filters.forEach((filter) => {
         dogsFiltered = filter.apply(dogsFiltered)
     })
