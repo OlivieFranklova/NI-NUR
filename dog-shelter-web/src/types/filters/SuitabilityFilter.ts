@@ -1,5 +1,6 @@
 import {Filter} from "@/types/filters/Filter";
 import {Dog} from "@/types/Dog";
+import {StaticImageData} from "next/image";
 
 
 export class SuitabilityFilter implements Filter {
@@ -9,10 +10,10 @@ export class SuitabilityFilter implements Filter {
     static choices = [
         {
             key: true,
-            value: "Pro všechny"
+            value: {name:"Pro všechny",icon_src:undefined}
         }, {
             key: false,
-            value: "Pro náročné"
+            value: {name:"Pro náročné",icon_src:undefined}
         }
     ]
     static defaultChoice = SuitabilityFilter.choices[0]
@@ -43,13 +44,13 @@ export class SuitabilityFilter implements Filter {
         return SuitabilityFilter.filterName;
     }
 
-    getChoices(): { key: any; value: String }[] {
+    getChoices(): { key: any; value: { name: String, icon_src: StaticImageData| undefined } }[] {
         return SuitabilityFilter.choices;
     }
 
     getCurrentChoice(): {
         key: any;
-        value: String
+        value: { name: String, icon_src: StaticImageData| undefined }
     } {
         return SuitabilityFilter.choices.find((value) => {
             return value.key == this.suitableForEveryone

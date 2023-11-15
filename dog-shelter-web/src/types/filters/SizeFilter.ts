@@ -1,6 +1,11 @@
 import {Dog, SizeEnum} from "@/types/Dog";
 import {Filter} from "@/types/filters/Filter";
 
+import small_size from '@/resources/icons/small.png';
+import medium_size from '@/resources/icons/medium.png';
+import large_size from '@/resources/icons/big.png';
+import {StaticImageData} from "next/image";
+
 export class SizeFilter implements Filter {
     size?: SizeEnum = undefined
 
@@ -9,17 +14,26 @@ export class SizeFilter implements Filter {
     }
 
     static filterName = "Velikost"
-    static defaultChoice = { key: undefined, value: SizeFilter.filterName }
+    static defaultChoice = {key: undefined, value: {name: SizeFilter.filterName, icon_src: small_size}}
     static choices = [
         {
             key: SizeEnum.Small,
-            value: "Malá"
+            value: {
+                name: "Malá",
+                icon_src: small_size,
+            }
         }, {
             key: SizeEnum.Medium,
-            value: "Střední"
+            value: {
+                name: "Střední",
+                icon_src: medium_size,
+            }
         }, {
             key: SizeEnum.Large,
-            value: "Velká"
+            value: {
+                name: "Velká",
+                icon_src: large_size,
+            }
         }
     ]
 
@@ -41,13 +55,13 @@ export class SizeFilter implements Filter {
         return new SizeFilter(value)
     }
 
-    getCurrentChoice(): { key: any, value: String } {
+    getCurrentChoice(): { key: any, value: { name: String, icon_src: StaticImageData| undefined } } {
         if (this.size === undefined) {
             return SizeFilter.defaultChoice
         }
 
-        return SizeFilter.choices.find((value) => {
-            return value.key == this.size
+        return SizeFilter.choices.find((choice) => {
+            return choice.key == this.size
         }) ?? SizeFilter.defaultChoice
     }
 
@@ -55,7 +69,7 @@ export class SizeFilter implements Filter {
         return SizeFilter.filterName
     }
 
-    getChoices(): { key: any; value: String }[] {
+    getChoices(): { key: any; value: { name: String, icon_src: StaticImageData| undefined } }[] {
         return SizeFilter.choices
     }
 }

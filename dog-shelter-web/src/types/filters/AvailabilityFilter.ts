@@ -1,5 +1,6 @@
 import {Filter} from "@/types/filters/Filter";
 import {Dog} from "@/types/Dog";
+import {StaticImageData} from "next/image";
 
 
 export class AvailabilityFilter implements Filter {
@@ -10,7 +11,7 @@ export class AvailabilityFilter implements Filter {
     }
 
     static filterName = "Kdy je dostupný"
-    static defaultChoice = { key: undefined, value: AvailabilityFilter.filterName }
+    static defaultChoice = { key: undefined, value: {name:AvailabilityFilter.filterName,icon_src:undefined} }
     static dateFormatter = new Intl.DateTimeFormat('cs-CZ', {
         day: '2-digit',
         month: '2-digit',
@@ -46,20 +47,20 @@ export class AvailabilityFilter implements Filter {
 
     getChoices(): {
         key: any;
-        value: String
+        value: {name:String, icon_src:StaticImageData| undefined}
     }[] {
         return [];
     }
 
     getCurrentChoice(): {
         key: any;
-        value: String
+        value: {name:String, icon_src:StaticImageData| undefined}
     } {
         if (this.availability === undefined) {
             return AvailabilityFilter.defaultChoice
         }
 
         const date = AvailabilityFilter.dateFormatter.format(this.availability)
-        return { key: date, value: date }
+        return { key: date, value: {name:date,icon_src:undefined} }
     }
 }

@@ -17,7 +17,7 @@ export default function DogsPage(){
         <Grid container spacing={2} className='grid'>
             {dogsList.map((dog, index) => (
                 <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                    <DogCard dogData={dog} />
+                    <DogCard dogData={dog} icon={true} />
                 </Grid>
             ))}
         </Grid>

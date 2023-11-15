@@ -1,5 +1,6 @@
 import {Dog, SizeEnum} from "@/types/Dog";
 import {Filter} from "@/types/filters/Filter";
+import {StaticImageData} from "next/image";
 
 export enum SortField {
     Size,
@@ -24,27 +25,27 @@ export class Sort implements Filter {
     }
 
     static filterName = "Seřadit"
-    static defaultChoice = { key: undefined, value: Sort.filterName }
+    static defaultChoice = { key: undefined, value: {name:Sort.filterName,icon_src:undefined} }
     static choices = [
         {
             key: SortField.Size,
-            value: "Od nejmenšího"
-        }, {
+            value: {name:"Od nejmenšího",icon_src:undefined}
+}, {
             key: SortField.SizeReversed,
-            value: "Od největšího"
-        }, {
+            value: {name:"Od největšího",icon_src:undefined}
+}, {
             key: SortField.Suitability,
-            value: "Náročnost (vzestupně)"
-        }, {
+            value: {name:"Náročnost (vzestupně)",icon_src:undefined}
+}, {
             key: SortField.SuitabilityReversed,
-            value: "Náročnost (sestupně)"
-        }, {
+            value: {name:"Náročnost (sestupně)",icon_src:undefined}
+}, {
             key: SortField.NeedForAttention,
-            value: "Potřeba venčení (vzestupně)"
-        }, {
+            value: {name:"Potřeba venčení (vzestupně)",icon_src:undefined}
+}, {
             key: SortField.NeedForAttentionReversed,
-            value: "Potřeba venčení (sestupně)"
-        }
+            value: {name:"Potřeba venčení (sestupně)",icon_src:undefined}
+}
     ]
 
     apply(dogs: Dog[]): Dog[] {
@@ -96,7 +97,7 @@ export class Sort implements Filter {
         return new Sort(value)
     }
 
-    getCurrentChoice(): { key: any, value: String } {
+    getCurrentChoice(): { key: any, value: {name:String, icon_src:StaticImageData| undefined} } {
         if (this.sortField === undefined) {
             return Sort.defaultChoice
         }
@@ -110,7 +111,7 @@ export class Sort implements Filter {
         return Sort.filterName
     }
 
-    getChoices(): { key: any; value: String }[] {
+    getChoices(): { key: any; value: {name:String, icon_src:StaticImageData| undefined} }[] {
         return Sort.choices
     }
 }

@@ -1,14 +1,16 @@
-import {FormControl, InputLabel, Select} from "@mui/material";
+import {FormControl, InputLabel, ListItemIcon, ListItemText, Select} from "@mui/material";
 import {Filter} from "@/types/filters/Filter";
 import MenuItem from "@mui/material/MenuItem";
 import {AvailabilityFilter} from "@/types/filters/AvailabilityFilter";
 import {LocalizationProvider, MobileDateTimePicker} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {Dayjs} from "dayjs";
+import Image from "next/image";
+import * as React from "react";
 
-export default function FilterBar({ filters, onChange }: { filters: Filter[], onChange: (newFilter: Filter) => void }) {
+export default function FilterBar({filters, onChange}: { filters: Filter[], onChange: (newFilter: Filter) => void }) {
     return (
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-around' }}>
+        <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
             {filters.map((filter, key) => {
                 if (filter instanceof AvailabilityFilter) {
                     return <FormControl key={key} variant="standard" sx={{m: 1, minWidth: 120, flex: 1}}>
@@ -29,7 +31,12 @@ export default function FilterBar({ filters, onChange }: { filters: Filter[], on
                     >
                         <MenuItem value={undefined}>-</MenuItem>
                         {filter.getChoices().map((f, k) => (
-                            <MenuItem key={k} value={f.key}>{f.value}</MenuItem>
+                            <MenuItem key={k} value={f.key}>
+                                {f.value.icon_src !== undefined &&
+                                        <Image src={f.value.icon_src} alt="Size Icon" height={20}/>}
+
+                                <ListItemText>{f.value.name}</ListItemText>
+                            </MenuItem>
                         ))}
                     </Select>
                 </FormControl>

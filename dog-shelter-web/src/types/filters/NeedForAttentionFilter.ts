@@ -1,5 +1,9 @@
 import {Filter} from "@/types/filters/Filter";
 import {AttentionNeedEnum, Dog} from "@/types/Dog";
+import {StaticImageData} from "next/image";
+import small_interest from '@/resources/icons/Interest=Low.png';
+import medium_interest from '@/resources/icons/Interest=Medium.png';
+import high_interest from '@/resources/icons/Interest=High.png';
 
 
 export class NeedForAttentionFilter implements Filter {
@@ -10,17 +14,17 @@ export class NeedForAttentionFilter implements Filter {
     }
 
     static filterName = "Potřeba venčení"
-    static defaultChoice = { key: undefined, value: NeedForAttentionFilter.filterName }
+    static defaultChoice = { key: undefined, value:{name: NeedForAttentionFilter.filterName,icon_src:undefined} }
     static choices = [
         {
             key: AttentionNeedEnum.Small,
-            value: "Malá"
+            value: {name:"Malá",icon_src:small_interest}
         }, {
             key: AttentionNeedEnum.Medium,
-            value: "Střední"
+            value: {name:"Střední",icon_src:medium_interest}
         }, {
             key: AttentionNeedEnum.Large,
-            value: "Velká"
+            value: {name:"Velká",icon_src:high_interest}
         }
     ]
 
@@ -48,21 +52,21 @@ export class NeedForAttentionFilter implements Filter {
 
     getChoices(): {
         key: any;
-        value: String
+        value: {name:String, icon_src:StaticImageData| undefined}
     }[] {
         return NeedForAttentionFilter.choices;
     }
 
     getCurrentChoice(): {
         key: any;
-        value: String
+        value: {name:String, icon_src:StaticImageData| undefined}
     } {
         if (this.needForAttention=== undefined) {
             return NeedForAttentionFilter.defaultChoice
         }
 
-        return NeedForAttentionFilter.choices.find((value) => {
-            return value.key == this.needForAttention
+        return NeedForAttentionFilter.choices.find((choice) => {
+            return choice.key == this.needForAttention
         }) ?? NeedForAttentionFilter.defaultChoice
     }
 }

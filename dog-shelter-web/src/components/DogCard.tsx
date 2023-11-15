@@ -16,7 +16,7 @@ import high_interest from '@/resources/icons/Interest=High.png';
 import small_size from '@/resources/icons/small.png';
 import medium_size from '@/resources/icons/medium.png';
 import large_size from '@/resources/icons/big.png';
-export default function DogCard({ dogData }: { dogData: Dog })  {
+export default function DogCard({ dogData , icon=false}: { dogData: Dog ,icon:Boolean})  {
     const interest_icon_src:StaticImageData=dogData.needForAttention===AttentionNeedEnum.Small?small_interest: ( dogData.needForAttention===AttentionNeedEnum.Medium?medium_interest:high_interest);
     const size_icon_src:StaticImageData=dogData.size===SizeEnum.Small?small_size: ( dogData.size===SizeEnum.Medium?medium_size:large_size);
 
