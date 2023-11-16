@@ -7,7 +7,7 @@ import dog5 from "@/resources/dog_images/dog5.jpg"
 import {Reservation} from "@/types/Reservation";
 
 export var dogs:Dog[]=[  {
-    photoSrc:dog1  ,
+    photoSrc:dog1,
     name: 'Rex',
     description: 'Rex je přátelský český pes s hravou povahou.',
     age: 3,

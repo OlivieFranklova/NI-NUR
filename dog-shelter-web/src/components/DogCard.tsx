@@ -8,6 +8,7 @@ import {AttentionNeedEnum, Dog, SexEnum, SizeEnum} from "@/types/Dog";
 import {Icon} from "@mui/material";
 import {Female, Male} from "@mui/icons-material";
 import Image, {StaticImageData} from "next/image";
+import Link from "next/link";
 
 import family_icon from '@/resources/icons/family.png';
 import small_interest from '@/resources/icons/Interest=Low.png';
@@ -16,11 +17,17 @@ import high_interest from '@/resources/icons/Interest=High.png';
 import small_size from '@/resources/icons/small.png';
 import medium_size from '@/resources/icons/medium.png';
 import large_size from '@/resources/icons/big.png';
+import {string} from "prop-types";
 export default function DogCard({ dogData , icon=false}: { dogData: Dog ,icon:Boolean})  {
     const interest_icon_src:StaticImageData=dogData.needForAttention===AttentionNeedEnum.Small?small_interest: ( dogData.needForAttention===AttentionNeedEnum.Medium?medium_interest:high_interest);
     const size_icon_src:StaticImageData=dogData.size===SizeEnum.Small?small_size: ( dogData.size===SizeEnum.Medium?medium_size:large_size);
+    const handleWalking = () => {
+        location.href = "/reservation?dog=" + dogData.name.toString();
+    };
+
 
     return (
+        // <Link href="/reservation" >
         <Card className="dogCard">
                 <div className="row-sb"  >
                 <Typography variant="h6" >
@@ -46,8 +53,9 @@ export default function DogCard({ dogData , icon=false}: { dogData: Dog ,icon:Bo
                 </Typography>
 
 <div className="actions">
-                <Button size="small" variant="contained">Vencit</Button>
+                <Button size="small" variant="contained" onClick={() => handleWalking()}>Vencit</Button>
 </div>
         </Card>
+        // </Link>
     );
 }
