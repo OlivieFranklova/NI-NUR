@@ -23,6 +23,7 @@ import FullCalendar from '@fullcalendar/react'
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import timeGridPlugin from '@fullcalendar/timegrid'
 import {Reservation} from "@/types/Reservation";
+import {number} from "prop-types";
 
 const events = [
     { title: 'Meeting', start: new Date() }
@@ -33,6 +34,9 @@ export default function DogsPage() {
     // Check if window is defined before using it
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const dogName = urlParams ? urlParams.get('dog') : null;
+    const editId = urlParams ? urlParams.get('res') : null
+    const edit : boolean = editId != null
+
     let h = typeof window !== 'undefined' ? window.innerHeight : 600;
     let h_30 = h/100 * 30;
     const [button_state, setActive] = useState(true)
@@ -42,9 +46,17 @@ export default function DogsPage() {
 
     const handleSubmit = () => {
         if (dog){
-            let reservation : Reservation = {dateTime: reservationDate, dog: dog, id: reservations[reservations.length -1].id + 1}
             const storedReservations = localStorage.getItem('reservations');
             let res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
+            let reservationId = res[res.length -1].id + 1
+            if (edit && editId){
+
+                console.log(parseInt(editId))
+                res.splice(parseInt(editId), 1)
+                console.log(res)
+            }
+            let reservation : Reservation = {dateTime: reservationDate, dog: dog, id: reservationId}
+
             res.push(reservation)
 
             localStorage.setItem('reservations', JSON.stringify(res))
@@ -93,10 +105,10 @@ export default function DogsPage() {
                 <Grid item xs={6}>
                     {/* Form */}
                     <form onSubmit={handleSubmit}>
-                        <TextField className="field" label="Jmeno a prijmeni" defaultValue="Jan Novak" fullWidth />
-                        <TextField className="field" label="Telefon" defaultValue="+420 777 777 777" fullWidth />
-                        <TextField className="field" label="Email" defaultValue="Jan.Novak@email.cz" fullWidth />
-                        <TextField className="field" label="Poznamka" fullWidth />
+                        <TextField className="field" label="Jmeno a prijmeni" defaultValue="Jan Novak" fullWidth disabled={edit}/>
+                        <TextField className="field" label="Telefon" defaultValue="+420 777 777 777" fullWidth disabled={edit}/>
+                        <TextField className="field" label="Email" defaultValue="Jan.Novak@email.cz" fullWidth disabled={edit}/>
+                        <TextField className="field" label="Poznamka" fullWidth disabled={edit}/>
                     </form>
                 </Grid>
             </Grid>

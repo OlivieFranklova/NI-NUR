@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import EditIcon from '@mui/icons-material/Edit';
+import {Reservation} from "@/types/Reservation";
 
 
 export default function ReservationsTable() {
@@ -44,9 +45,10 @@ export default function ReservationsTable() {
     ];
 
 // Functions to handle button actions
-    const handleEdit = (id: any) => {
-        console.log(id)
+    const handleEdit = (reservation: any) => {
         // Implement the Edit action here
+        console.log(reservation)
+        handleEditRes(reservation.row.name, reservation.id)
     };
 
     const handleDelete = (reservation: any) => {
@@ -62,8 +64,11 @@ export default function ReservationsTable() {
         location.href = "/reservation?dog=" + dogName;
     };
 
+    const handleEditRes = (dogName : String, id: number) => {
+        location.href = "/reservation?dog=" + dogName + "&res=" + id;
+    };
+
     const handleReserve = (reservation: any) => {
-        console.log(reservation)
         handleWalking(reservation.row.name)
     };
     const getReservations = () => {
