@@ -7,7 +7,7 @@ import {AttentionNeedEnum, SizeEnum} from "@/types/Dog";
 import {dogs, account} from "@/data/Database";
 
 import Image, {StaticImageData} from "next/image";
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import family_icon from "@/resources/icons/family.png";
 
@@ -43,13 +43,42 @@ export default function DogsPage() {
     const [date, setDate] = useState(new Date());
     let reservationDate = new Date()
 
-    // Account details
-    let name = account.name + " " + account.surname
-    let phone = account.phone
-    let email = account.email
+    // Reservation details
+    const [formData, setFormData] = useState({
+        name: account.name + " " + account.surname,
+        phone: account.phone,
+        email: account.email,
+        note: '',
+    });
+
+    // Edit reservation form data
+    useEffect(() => {
+        // Edit reservation form data
+        if (edit && editId) {
+            const storedReservations = localStorage.getItem('reservations');
+            const reservations = storedReservations ? JSON.parse(storedReservations) : [];
+            const reservation = reservations[parseInt(editId)];
+
+            setFormData({
+                name: reservation.name,
+                phone: reservation.phone,
+                email: reservation.email,
+                note: reservation.note || '',
+            });
+        }
+    }, [edit, editId]);
+
+    const handleChange = (e: any, fieldName: string) => {
+        const { value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [fieldName]: value,
+        }));
+    };
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
         if (dog){
             const storedReservations = localStorage.getItem('reservations');
             let res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
@@ -60,7 +89,8 @@ export default function DogsPage() {
                 res.splice(parseInt(editId), 1)
                 console.log(res)
             }
-            let reservation : Reservation = {dateTime: reservationDate, dog: dog, id: reservationId}
+            let reservation : Reservation = {dateTime: reservationDate, dog: dog, id: reservationId, name: formData.name,
+                email: formData.email, phone: formData.phone, note: formData.note}
 
             res.push(reservation)
 
@@ -110,10 +140,10 @@ export default function DogsPage() {
                 <Grid item xs={6}>
                     {/* Form */}
                     <form onSubmit={handleSubmit}>
-                        <TextField className="field" label="Jmeno a prijmeni" defaultValue={name} fullWidth disabled={edit}/>
-                        <TextField className="field" label="Telefon" defaultValue={phone} fullWidth disabled={edit}/>
-                        <TextField className="field"  label="Email" defaultValue={email} fullWidth disabled={edit}/>
-                        <TextField className="field" label="Poznamka" fullWidth disabled={edit}/>
+                        <TextField className="field" name = "name" label="Jmeno a prijmeni" value={formData.name} onChange={(e) => handleChange(e, 'name')} fullWidth disabled={edit}/>
+                        <TextField className="field" label="Telefon" value={formData.phone} onChange={(e) => handleChange(e, 'phone')} fullWidth disabled={edit}/>
+                        <TextField className="field"  label="Email" value={formData.email} onChange={(e) => handleChange(e, 'email')} fullWidth disabled={edit}/>
+                        <TextField className="field" label="Poznamka" value={formData.note} onChange={(e) => handleChange(e, 'note')} fullWidth disabled={edit}/>
                     </form>
                 </Grid>
             </Grid>
@@ -151,7 +181,7 @@ export default function DogsPage() {
                     <Button id="btnSubmit"
                             type="submit"
                             variant="contained"
-                            onClick={() => handleSubmit()}
+                            onClick={(e) => handleSubmit(e)}
                             disabled={button_state}>
                         Submit
                     </Button>
