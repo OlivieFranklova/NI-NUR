@@ -26,7 +26,8 @@ export default function DogsPage(){
         new NeedForAttentionFilter()
     ])
 
-    localStorage.setItem('reservations', JSON.stringify(reservations))
+    if (!localStorage.getItem('reservations'))
+        localStorage.setItem('reservations', JSON.stringify(reservations))
 
     const handleLoadMore = () => {
         // Increase the number of cards to display by 4 when the "Load more" button is clicked
