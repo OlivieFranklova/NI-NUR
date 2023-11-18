@@ -118,11 +118,6 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-25'), new Date('2023-11-27'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
     },
 ];
-export var reservations:Reservation[]=[
-    {dateTime:new Date(1698746240628),dog:dogs[0],id:1},
-    {dateTime:new Date(1698746240678),dog:dogs[1],id:2},
-    {dateTime: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),dog:dogs[0],id:3}
-]
 
 export var account: Account = {
     name: "Jan",
@@ -130,3 +125,10 @@ export var account: Account = {
     phone: "+420 777 777 777",
     email: "jan.novak@email.cz"
 }
+
+export var reservations:Reservation[]=[
+    {dateTime:new Date(1698746240628),dog:dogs[0],id:1, name: account.name, email: account.email, phone: account.phone, note: ''},
+    {dateTime:new Date(1698746240678),dog:dogs[1],id:2, name: account.name, email: account.email, phone: account.phone, note: ''},
+    {dateTime: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),dog:dogs[0],id:3, name: account.name, email: account.email, phone: account.phone, note: ''}
+]
+
