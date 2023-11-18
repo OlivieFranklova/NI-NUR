@@ -50,7 +50,8 @@ export default function ReservationsTable() {
     };
 
     const handleDelete = (reservation: any) => {
-        // Implement the Delete action here
+        reservations.splice(reservation.id, 1)
+        setRows(getReservations)
     };
 
     const handleReserve = (id: any) => {
