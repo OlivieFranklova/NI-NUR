@@ -23,20 +23,24 @@ import FullCalendar from '@fullcalendar/react'
 // import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import timeGridPlugin from '@fullcalendar/timegrid'
-
+import {start} from "repl";
 const events = [
     { title: 'Meeting', start: new Date() }
 ]
 
 export default function DogsPage() {
-    const dogsList: Dog[] = reservations.map((r) => r.dog);
+    const [dogsList,setDogsList]=useState(dogs);
     // Check if window is defined before using it
     const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const dogName = urlParams ? urlParams.get('dog') : null;
+    let h = typeof window !== 'undefined' ? window.innerHeight : 600;
+    let h_30 = h/100 * 30;
+    // let button_state = "false";
+    const [button_state, setActive] = useState(true)
     const [date, setDate] = useState(new Date());
 
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
+
+    const handleSubmit = () => {
         location.href = "/reservations";
     };
 
@@ -84,33 +88,44 @@ export default function DogsPage() {
                         <TextField className="field" label="Telefon" defaultValue="+420 777 777 777" fullWidth />
                         <TextField className="field" label="Email" defaultValue="Jan.Novak@email.cz" fullWidth />
                         <TextField className="field" label="Poznamka" fullWidth />
-
-                        <Button type="submit" variant="contained" color="primary">
-                            Submit
-                        </Button>
                     </form>
-
-                    {/* Calendar */}
-                    {/* Add your calendar component here */}
                 </Grid>
             </Grid>
-            <Grid item xs={12}>
-                {/*<WeekScheduler events={events} />*/}
-                {/*<WeekScheduler events={events} />*/}
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
                 <div>
                     <FullCalendar
                         // https://fullcalendar.io/docs
                         plugins={[timeGridPlugin, interactionPlugin]}
-                        dateClick={(arg: any) => { // bind with an arrow function
-                            alert(arg.dateStr)
+                        dateClick={(arg: any) => {
+                            setActive(false)
+                        }}
+                        select={(arg: any) => {
+                            setActive(false)
                         }}
                         // initialView='dayGridMonth'
-                        weekends={false}
+                        weekends={true}
                         eventContent={renderEventContent}
+                        height={h_30}
+                        selectable={true}
+                        unselectAuto={false}
                     />
                 </div>
+                </Grid>
             </Grid>
-
+            <Grid container spacing={3}>
+                <Grid item xs={11}>
+                </Grid>
+                <Grid item xs={1}>
+                    <Button id="btnSubmit"
+                            type="submit"
+                            variant="contained"
+                            onClick={() => handleSubmit()}
+                            disabled={button_state}>
+                        Submit
+                    </Button>
+                </Grid>
+            </Grid>
 
         </div>;
     }
