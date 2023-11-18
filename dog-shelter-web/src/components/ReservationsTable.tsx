@@ -54,8 +54,13 @@ export default function ReservationsTable() {
         setRows(getReservations)
     };
 
-    const handleReserve = (id: any) => {
-        // Implement the Reserve action here
+    const handleWalking = (dogName : String) => {
+        location.href = "/reservation?dog=" + dogName;
+    };
+
+    const handleReserve = (reservation: any) => {
+        console.log(reservation)
+        handleWalking(reservation.row.name)
     };
     const getReservations = () => {
         return reservations.map((r, index) => {
