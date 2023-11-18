@@ -1,5 +1,5 @@
 'use client'
-import {dogs} from "@/data/Database"
+import {dogs, reservations} from "@/data/Database"
 import DogCard from "../../components/DogCard"
 import {useState} from "react";
 import {Grid} from "@mui/material";
@@ -25,6 +25,8 @@ export default function DogsPage(){
         new SuitabilityFilter(),
         new NeedForAttentionFilter()
     ])
+
+    localStorage.setItem('reservations', JSON.stringify(reservations))
 
     const handleLoadMore = () => {
         // Increase the number of cards to display by 4 when the "Load more" button is clicked

@@ -50,7 +50,11 @@ export default function ReservationsTable() {
     };
 
     const handleDelete = (reservation: any) => {
-        reservations.splice(reservation.id, 1)
+        const storedReservations = localStorage.getItem('reservations');
+        let res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
+        res.splice(reservation.id, 1)
+        localStorage.setItem('reservations', JSON.stringify(res))
+
         setRows(getReservations)
     };
 
@@ -63,10 +67,13 @@ export default function ReservationsTable() {
         handleWalking(reservation.row.name)
     };
     const getReservations = () => {
-        return reservations.map((r, index) => {
+        const storedReservations = localStorage.getItem('reservations');
+        const res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
+
+        return res.map((r, index) => {
             return {
-                date: r.dateTime.toDateString(),
-                time: r.dateTime.toTimeString(),
+                date: r.dateTime,
+                time: r.dateTime,
                 name: r.dog.name,
                 id: index
             }
