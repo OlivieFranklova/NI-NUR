@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import {Grid, Button, TextField } from "@mui/material";
 
 import {AttentionNeedEnum, SizeEnum} from "@/types/Dog";
-import {dogs} from "@/data/Database";
+import {dogs, reservations} from "@/data/Database";
 
 import Image, {StaticImageData} from "next/image";
 import React, { useState } from 'react';
@@ -22,6 +22,7 @@ import FullCalendar from '@fullcalendar/react'
 
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import timeGridPlugin from '@fullcalendar/timegrid'
+import {Reservation} from "@/types/Reservation";
 
 const events = [
     { title: 'Meeting', start: new Date() }
@@ -36,10 +37,20 @@ export default function DogsPage() {
     let h_30 = h/100 * 30;
     const [button_state, setActive] = useState(true)
     const [date, setDate] = useState(new Date());
+    let reservationDate = new Date()
 
 
     const handleSubmit = () => {
-        location.href = "/reservations";
+        if (dog){
+            let reservation : Reservation = {dateTime: reservationDate, dog: dog, id: reservations[reservations.length -1].id + 1}
+            const storedReservations = localStorage.getItem('reservations');
+            let res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
+            res.push(reservation)
+
+            localStorage.setItem('reservations', JSON.stringify(res))
+            location.href = "/reservations";
+        }
+
     };
 
     const dog = dogsList.find((obj) => obj.name == dogName)
@@ -97,6 +108,7 @@ export default function DogsPage() {
                         plugins={[timeGridPlugin, interactionPlugin]}
                         dateClick={(arg: any) => {
                             setActive(false)
+                            reservationDate = arg.date
                         }}
                         select={(arg: any) => {
                             setActive(false)
