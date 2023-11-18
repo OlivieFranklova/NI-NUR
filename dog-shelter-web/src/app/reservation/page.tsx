@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import {Grid, Button, TextField } from "@mui/material";
 
 import {AttentionNeedEnum, SizeEnum} from "@/types/Dog";
-import {dogs, reservations} from "@/data/Database";
+import {dogs, account} from "@/data/Database";
 
 import Image, {StaticImageData} from "next/image";
 import React, { useState } from 'react';
@@ -42,6 +42,11 @@ export default function DogsPage() {
     const [button_state, setActive] = useState(true)
     const [date, setDate] = useState(new Date());
     let reservationDate = new Date()
+
+    // Account details
+    let name = account.name + " " + account.surname
+    let phone = account.phone
+    let email = account.email
 
 
     const handleSubmit = () => {
@@ -105,9 +110,9 @@ export default function DogsPage() {
                 <Grid item xs={6}>
                     {/* Form */}
                     <form onSubmit={handleSubmit}>
-                        <TextField className="field" label="Jmeno a prijmeni" defaultValue="Jan Novak" fullWidth disabled={edit}/>
-                        <TextField className="field" label="Telefon" defaultValue="+420 777 777 777" fullWidth disabled={edit}/>
-                        <TextField className="field" label="Email" defaultValue="Jan.Novak@email.cz" fullWidth disabled={edit}/>
+                        <TextField className="field" label="Jmeno a prijmeni" defaultValue={name} fullWidth disabled={edit}/>
+                        <TextField className="field" label="Telefon" defaultValue={phone} fullWidth disabled={edit}/>
+                        <TextField className="field"  label="Email" defaultValue={email} fullWidth disabled={edit}/>
                         <TextField className="field" label="Poznamka" fullWidth disabled={edit}/>
                     </form>
                 </Grid>

@@ -5,6 +5,7 @@ import dog3 from "@/resources/dog_images/dog3.jpg"
 import dog4 from "@/resources/dog_images/dog4.jpg"
 import dog5 from "@/resources/dog_images/dog5.jpg"
 import {Reservation} from "@/types/Reservation";
+import {Account} from "@/types/Account";
 
 export var dogs:Dog[]=[  {
     photoSrc:dog1,
@@ -122,3 +123,10 @@ export var reservations:Reservation[]=[
     {dateTime:new Date(1698746240678),dog:dogs[1],id:2},
     {dateTime: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),dog:dogs[0],id:3}
 ]
+
+export var account: Account = {
+    name: "Jan",
+    surname: "Novak",
+    phone: "+420 777 777 777",
+    email: "jan.novak@email.cz"
+}
