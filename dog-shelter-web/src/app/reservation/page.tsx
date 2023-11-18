@@ -1,15 +1,14 @@
 'use client'
-import ReservationTable from "@/components/ReservationTable";
-import Typography from "@mui/material/Typography";
-import {Grid, Icon, Button, TextField, TextareaAutosize } from "@mui/material";
 
-import DogCard from "@/components/DogCard";
-import {AttentionNeedEnum, Dog, SexEnum, SizeEnum} from "@/types/Dog";
-import {dogs, reservations} from "@/data/Database";
-import {useRouter} from "next/router";
+import Typography from "@mui/material/Typography";
+import {Grid, Button, TextField } from "@mui/material";
+
+import {AttentionNeedEnum, SizeEnum} from "@/types/Dog";
+import {dogs} from "@/data/Database";
+
 import Image, {StaticImageData} from "next/image";
 import React, { useState } from 'react';
-import {Female, Male} from "@mui/icons-material";
+
 import family_icon from "@/resources/icons/family.png";
 
 import small_interest from '@/resources/icons/Interest=Low.png';
@@ -20,10 +19,10 @@ import medium_size from '@/resources/icons/medium.png';
 import large_size from '@/resources/icons/big.png';
 
 import FullCalendar from '@fullcalendar/react'
-// import dayGridPlugin from '@fullcalendar/daygrid'
+
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import timeGridPlugin from '@fullcalendar/timegrid'
-import {start} from "repl";
+
 const events = [
     { title: 'Meeting', start: new Date() }
 ]
@@ -35,7 +34,6 @@ export default function DogsPage() {
     const dogName = urlParams ? urlParams.get('dog') : null;
     let h = typeof window !== 'undefined' ? window.innerHeight : 600;
     let h_30 = h/100 * 30;
-    // let button_state = "false";
     const [button_state, setActive] = useState(true)
     const [date, setDate] = useState(new Date());
 
@@ -105,7 +103,11 @@ export default function DogsPage() {
                         }}
                         // initialView='dayGridMonth'
                         weekends={true}
-                        eventContent={renderEventContent}
+                        // events={[{groupId: 'testGroupId',
+                        //     start: dog.availability[0],
+                        //     end: new Date(dog.availability[0].getFullYear(),dog.availability[0].getMonth(),dog.availability[0].getDate()+1),
+                        //     // end: '2014-11-10T16:00:00',
+                        //     }]}
                         height={h_30}
                         selectable={true}
                         unselectAuto={false}
@@ -137,12 +139,4 @@ export default function DogsPage() {
 }
 
 
-// a custom render function
-function renderEventContent(eventInfo: any) {
-    return (
-        <>
-            <b>{eventInfo.timeText}</b>
-            <i>{eventInfo.event.title}</i>
-        </>
-    )
-}
+

@@ -1,9 +1,9 @@
 import {Filter} from "@/types/filters/Filter";
 import {AttentionNeedEnum, Dog} from "@/types/Dog";
 import {StaticImageData} from "next/image";
-import small_interest from '@/resources/icons/Interest=Low.png';
+import  high_interest from '@/resources/icons/Interest=High.png';
 import medium_interest from '@/resources/icons/Interest=Medium.png';
-import high_interest from '@/resources/icons/Interest=High.png';
+import small_interest from '@/resources/icons/Interest=Low.png';
 
 
 export class NeedForAttentionFilter implements Filter {
