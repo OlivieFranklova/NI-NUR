@@ -32,13 +32,38 @@ const events = [
 export default function DogsPage() {
     const [dogsList,setDogsList]=useState(dogs);
     // Check if window is defined before using it
-    const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const [urlParams, setUrlParams] = useState<URLSearchParams | null>(null);
+
+    useEffect(() => {
+        // Check if window is available (client-side rendering)
+        if (typeof window !== 'undefined') {
+            let params = new URLSearchParams(window.location.search);
+            setUrlParams(params);
+        }
+    }, []);
+
     const dogName = urlParams ? urlParams.get('dog') : null;
     const editId = urlParams ? urlParams.get('res') : null
     const edit : boolean = editId != null
 
-    let h = typeof window !== 'undefined' ? window.innerHeight : 600;
-    let h_30 = h/100 * 35;
+    const [windowHeight, setWindowHeight] = useState<number>(typeof window !== 'undefined' ? window.innerHeight : 600);
+    useEffect(() => {
+        // Check if window is available (client-side rendering)
+        if (typeof window !== 'undefined') {
+            const handleResize = () => {
+                setWindowHeight(window.innerHeight);
+            };
+
+            window.addEventListener('resize', handleResize);
+
+            // Cleanup the event listener on component unmount
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
+    }, []); // Empty dependency array means this effect runs only once after the initial render
+
+    const h_30 = windowHeight / 100 * 35;
     const [button_state, setActive] = useState(true)
     const [date, setDate] = useState(new Date());
     let reservationDate = new Date()
@@ -220,6 +245,7 @@ export default function DogsPage() {
                 <Grid item xs={11}>
                 </Grid>
                 <Grid item xs={1}>
+                    <br/>
                     <Button id="btnSubmit"
                             type="submit"
                             variant="contained"

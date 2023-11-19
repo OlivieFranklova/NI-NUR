@@ -10,7 +10,13 @@ import {Reservation} from "@/types/Reservation";
 export default function DogsPage(){
     // const dogsList:Dog[]=reservations.map((r)=>r.dog);
     const storedReservations = localStorage.getItem('reservations');
-    const res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
+    let res : Reservation[];
+    if (storedReservations === null){
+        res = [];
+    }
+    else{
+        res = storedReservations ? JSON.parse(storedReservations) : [];
+    }
     const dogsList:Dog[]=res.map((r)=>r.dog);
     return <div>
         <Typography variant="h3" >Moje rezervace venčení</Typography>
