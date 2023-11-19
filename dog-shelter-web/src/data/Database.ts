@@ -16,7 +16,7 @@ export var dogs:Dog[]=[  {
     needForAttention: AttentionNeedEnum.Medium,
     size: SizeEnum.Medium,
     suitableForEveryone: true,
-    availability: [new Date('2023-11-25'), new Date('2023-11-27'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+    availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
 },
     {
         photoSrc:dog2  ,
@@ -27,7 +27,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Large,
         size: SizeEnum.Large,
         suitableForEveryone: false,
-        availability: [new Date('2023-11-26'), new Date('2023-11-28')],
+        availability: [new Date('2023-11-26T09:00:00'), new Date('2023-11-28T09:00:00')],
     },
     {
         photoSrc:dog3  ,
@@ -38,7 +38,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Small,
         size: SizeEnum.Small,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-24'), new Date('2023-11-26'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-24T09:00:00'), new Date('2023-11-26T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog4  ,
@@ -49,7 +49,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Medium,
         size: SizeEnum.Small,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-25'), new Date('2023-11-27'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog5 ,
@@ -60,7 +60,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Large,
         size: SizeEnum.Large,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-26'), new Date('2023-11-28'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-26T09:00:00'), new Date('2023-11-28T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog1  ,
@@ -71,7 +71,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Medium,
         size: SizeEnum.Medium,
         suitableForEveryone: false,
-        availability: [new Date('2023-11-24'), new Date('2023-11-26'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-24T09:00:00'), new Date('2023-11-26T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog1  ,
@@ -82,7 +82,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Small,
         size: SizeEnum.Small,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-25'), new Date('2023-11-27'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog1  ,
@@ -93,7 +93,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Medium,
         size: SizeEnum.Medium,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-26'), new Date('2023-11-28'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-26T09:00:00'), new Date('2023-11-28T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog1  ,
@@ -104,7 +104,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Large,
         size: SizeEnum.Large,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-24'), new Date('2023-11-26'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-24T09:00:00'), new Date('2023-11-26T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
         photoSrc:dog1  ,
@@ -115,7 +115,7 @@ export var dogs:Dog[]=[  {
         needForAttention: AttentionNeedEnum.Small,
         size: SizeEnum.Small,
         suitableForEveryone: true,
-        availability: [new Date('2023-11-25'), new Date('2023-11-27'), new Date('2023-11-15'), new Date('2023-11-22'), new Date('2023-11-29')],
+        availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
 ];
 

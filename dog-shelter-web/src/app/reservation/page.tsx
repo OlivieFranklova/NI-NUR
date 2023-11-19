@@ -38,7 +38,7 @@ export default function DogsPage() {
     const edit : boolean = editId != null
 
     let h = typeof window !== 'undefined' ? window.innerHeight : 600;
-    let h_30 = h/100 * 30;
+    let h_30 = h/100 * 35;
     const [button_state, setActive] = useState(true)
     const [date, setDate] = useState(new Date());
     let reservationDate = new Date()
@@ -101,6 +101,42 @@ export default function DogsPage() {
     };
 
     const dog = dogsList.find((obj) => obj.name == dogName)
+
+    let events : any[] = []
+    if (dog && dog.availability) {
+        // Create events from the dog's availability
+        events = dog.availability.map((availabilityDate) => {
+            const startDateTime = new Date(availabilityDate);
+            const endDateTime = new Date(startDateTime);
+            endDateTime.setHours(endDateTime.getHours() + 1);
+
+            return {
+                start: startDateTime,
+                end: endDateTime, // Set end time to start time + 1 hour
+                display: 'background'
+            };
+        });
+        console.log(events)
+    }
+
+    const selectAllow = (selectInfo: any) => {
+        // Check if the selected date and time are within dog's availability
+        if (dog && dog.availability) {
+            const selectedDateTime = selectInfo.start;
+            const isSelectable = dog.availability.some((availabilityDate) => {
+                const startDateTime = new Date(availabilityDate);
+                const endDateTime = new Date(startDateTime);
+                endDateTime.setHours(endDateTime.getHours() + 1);
+
+                return selectedDateTime >= startDateTime && selectedDateTime < endDateTime;
+            });
+
+            return isSelectable;
+        }
+
+        return false;
+    };
+
     console.log(dog?.name)
     if (dog) {
         const size_icon_src:StaticImageData=dog.size===SizeEnum.Small?small_size: ( dog.size===SizeEnum.Medium?medium_size:large_size);
@@ -170,6 +206,12 @@ export default function DogsPage() {
                         height={h_30}
                         selectable={true}
                         unselectAuto={false}
+                        slotDuration={'01:00:00'}
+                        allDaySlot={false}
+                        events={events}
+                        slotMinTime={"06:00:00"}
+                        slotMaxTime={"19:00:00"}
+                        selectAllow={selectAllow}
                     />
                 </div>
                 </Grid>
