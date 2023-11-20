@@ -2,11 +2,14 @@ import {FormControl, InputLabel, ListItemIcon, ListItemText, Select} from "@mui/
 import {Filter} from "@/types/filters/Filter";
 import MenuItem from "@mui/material/MenuItem";
 import {AvailabilityFilter} from "@/types/filters/AvailabilityFilter";
-import {LocalizationProvider, MobileDateTimePicker} from "@mui/x-date-pickers";
+import {DateTimePicker, LocalizationProvider, MobileDateTimePicker} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {Dayjs} from "dayjs";
 import Image from "next/image";
 import * as React from "react";
+import {csCZ} from "@mui/x-data-grid";
+import csLocale from "@fullcalendar/core/locales/cs";
+import 'dayjs/locale/cs';
 
 export default function FilterBar({filters, onChange}: { filters: Filter[], onChange: (newFilter: Filter) => void }) {
     return (
@@ -14,8 +17,8 @@ export default function FilterBar({filters, onChange}: { filters: Filter[], onCh
             {filters.map((filter, key) => {
                 if (filter instanceof AvailabilityFilter) {
                     return <FormControl key={key} variant="standard" sx={{m: 1, minWidth: 120, flex: 1}}>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <MobileDateTimePicker
+                        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="cs">
+                            <DateTimePicker
                                 label={filter.filterName()}
                                 onChange={(newValue) => onChange(filter.copy((newValue as Dayjs).toDate()))}
                             />

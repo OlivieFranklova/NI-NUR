@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dba82a4a-b429-49df-9d97-9f6c8afa3702" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/app/reservation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/app/reservation/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/components/DogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/components/DogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/components/ReservationsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/components/ReservationsTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/app/dogs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/app/dogs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dog-shelter-web/src/components/FilterBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/dog-shelter-web/src/components/FilterBar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <workItem from="1698663723365" duration="3326000" />
       <workItem from="1698744441571" duration="4673000" />
       <workItem from="1700073546285" duration="3365000" />
-      <workItem from="1700419351816" duration="3354000" />
+      <workItem from="1700419351816" duration="3820000" />
     </task>
     <servers />
   </component>

@@ -63,7 +63,7 @@ export default function DogsPage(){
             </Grid>
             {cardsPerPage < dogsList.length && (
                 <Button variant="contained" color="primary" onClick={handleLoadMore}>
-                    Load more
+                    Načíst více
                 </Button>
             )}
 
