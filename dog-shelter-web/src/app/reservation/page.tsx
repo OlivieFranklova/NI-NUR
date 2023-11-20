@@ -8,6 +8,7 @@ import {dogs, account} from "@/data/Database";
 
 import Image, {StaticImageData} from "next/image";
 import React, {useEffect, useState} from 'react';
+import csLocale from '@fullcalendar/core/locales/cs';
 
 import family_icon from "@/resources/icons/family.png";
 
@@ -182,10 +183,10 @@ export default function DogsPage() {
                     </div>
 
                     <div className="row-re">
-                        <Image src={size_icon_src} alt="Size Icon"  height={45} />
+                        <Image src={size_icon_src} alt="Size Icon"  height={40} />
                     </div>
                     <div className="row-re" >
-                        <Image src={family_icon} alt="Family Icon" width={45} height={45} />
+                        <Image src={family_icon} alt="Family Icon" width={40} height={40} />
                         <Typography variant="h6" >
                             { dog.suitableForEveryone ?  "Vhodný pro všechny":"Vhodný pro zkušené"}
                         </Typography>
@@ -214,6 +215,7 @@ export default function DogsPage() {
                     <FullCalendar
                         // https://fullcalendar.io/docs
                         plugins={[timeGridPlugin, interactionPlugin]}
+                        locale={csLocale}
                         dateClick={(arg: any) => {
                             setActive(false)
                             reservationDate = arg.date
@@ -251,7 +253,7 @@ export default function DogsPage() {
                             variant="contained"
                             onClick={(e) => handleSubmit(e)}
                             disabled={button_state}>
-                        Submit
+                        Rezervovat
                     </Button>
                 </Grid>
             </Grid>
@@ -260,7 +262,7 @@ export default function DogsPage() {
     }
     else{
         return <div>
-            ups
+            Načítavam ...
         </div>
     }
 }

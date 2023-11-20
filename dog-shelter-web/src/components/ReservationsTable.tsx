@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
+import {csCZ, DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import {reservations} from "@/data/Database";
 import {useState} from "react";
 import IconButton from "@mui/material/IconButton";
+
+import RepeatIcon from '@mui/icons-material/Repeat';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -14,35 +16,50 @@ import {Reservation} from "@/types/Reservation";
 export default function ReservationsTable() {
 
     const columns: GridColDef[] = [
-        {field: 'date', headerName: 'Datum', width: 160},
-        {field: 'time', headerName: 'Čas', width: 160, sortable: false,},
+        {field: 'date', headerName: 'Datum', width: 200},
+        {field: 'time', headerName: 'Čas', width: 200, sortable: false,},
         {
             field: 'name',
             headerName: 'Jméno pejska',
-            width: 160,
+            width: 200,
             sortable: false,
         },
         {
             field: 'actions',
             headerName: 'Akcie',
             sortable: false,
-            width: 300, // Adjust the width to fit the buttons
+            width: 400, // Adjust the width to fit the buttons
             renderCell: (params) => (
                 <div className="row">
                     <IconButton color="primary" onClick={() => handleEdit(params)}>
                         <EditIcon/>
                     </IconButton>
-                    <IconButton color="secondary" onClick={() => handleDelete(params)}>
-                        <DeleteIcon/>
-                    </IconButton>
 
-                    <Button variant="outlined" color="primary" onClick={() => handleReserve(params)}>
-                        Reserve
+
+                    <IconButton color="primary" onClick={() => handleReserve(params)}>
+                        <RepeatIcon/>
+                    </IconButton>
+                    <Button color="error" variant="text" onClick={() => handleDelete(params)}>
+                        <DeleteIcon/> Smazat
                     </Button>
                 </div>
             ),
         },
     ];
+    const getReservations = () => {
+        const storedReservations = localStorage.getItem('reservations');
+        const res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
+
+        return res.map((r, index) => {
+            const dateObject = new Date(r.dateTime);
+            return {
+                date: dateObject.toLocaleDateString(),
+                time: dateObject.getHours() +':00',
+                name: r.dog.name,
+                id: index
+            }
+        });
+    }
 
 // Functions to handle button actions
     const handleEdit = (reservation: any) => {
@@ -71,27 +88,15 @@ export default function ReservationsTable() {
     const handleReserve = (reservation: any) => {
         handleWalking(reservation.row.name)
     };
-    const getReservations = () => {
-        const storedReservations = localStorage.getItem('reservations');
-        const res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
 
-        return res.map((r, index) => {
-            return {
-                date: r.dateTime,
-                time: r.dateTime,
-                name: r.dog.name,
-                id: index
-            }
-        });
-    }
     const [rows, setRows] = useState(getReservations());
 
-    //const rows=reservations.map((r)=>{return{date:r.dateTime.getDate(),time:r.dateTime.getTime(),name:r.dog.name}});
     return (
         <div style={{height: 400, width: '100%'}}>
             <DataGrid
                 rows={rows}
                 columns={columns}
+                localeText={csCZ.components.MuiDataGrid.defaultProps.localeText}
                 initialState={{
                     pagination: {
                         paginationModel: {page: 0, pageSize: 5},

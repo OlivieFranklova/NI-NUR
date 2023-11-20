@@ -1,7 +1,9 @@
 import { createTheme } from "@mui/material"
 import "@fontsource/montserrat";
+import { csCZ } from '@mui/x-data-grid';
 
-export const theme = createTheme({
+export const theme = createTheme(
+    {
     palette: {
         info: {
             main: "#848484"
@@ -18,6 +20,7 @@ export const theme = createTheme({
             dark: '#212121'
         },
     },
+
 
 
     components: {
@@ -165,4 +168,4 @@ export const theme = createTheme({
         },
     },
 
-});
+},csCZ);
