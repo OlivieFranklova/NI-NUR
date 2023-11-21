@@ -13,7 +13,7 @@ export class SuitabilityFilter implements Filter {
             value: {name:"Pro všechny",icon_src:undefined}
         }, {
             key: false,
-            value: {name:"Pro náročné",icon_src:undefined}
+            value: {name:"Pro zkušené",icon_src:undefined}
         }
     ]
     static defaultChoice = SuitabilityFilter.choices[0]
@@ -23,7 +23,7 @@ export class SuitabilityFilter implements Filter {
     }
 
     apply(dogs: Dog[]): Dog[] {
-        if (this.suitableForEveryone) {
+        if (!this.suitableForEveryone) {
             return dogs
         }
 

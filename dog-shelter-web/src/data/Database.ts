@@ -8,7 +8,7 @@ import {Reservation} from "@/types/Reservation";
 import {Account} from "@/types/Account";
 
 export var dogs:Dog[]=[  {
-    photoSrc:dog1,
+    photoSrc:dog5,
     name: 'Rex',
     description: 'Rex je přátelský český pes s hravou povahou.',
     age: 3,
@@ -19,7 +19,7 @@ export var dogs:Dog[]=[  {
     availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
 },
     {
-        photoSrc:dog2  ,
+        photoSrc:dog4  ,
         name: 'Luna',
         description: 'Luna je milý český pes, který rád chodí na procházky.',
         age: 2,
@@ -30,7 +30,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-26T09:00:00'), new Date('2023-11-28T09:00:00'), new Date('2023-11-22T03:00:00'), new Date('2023-11-22T15:00:00')],
     },
     {
-        photoSrc:dog3  ,
+        photoSrc:dog1  ,
         name: 'Rocky',
         description: 'Rocky je aktivní český pes, skvělý pro dobrodružné majitele.',
         age: 4,
@@ -41,7 +41,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-24T09:00:00'), new Date('2023-11-26T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
-        photoSrc:dog4  ,
+        photoSrc:dog2  ,
         name: 'Mia',
         description: 'Mia je český pes plný energie a radosti.',
         age: 1,
@@ -52,7 +52,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
-        photoSrc:dog5 ,
+        photoSrc:dog3 ,
         name: 'Fido',
         description: 'Fido je oddaný český pes, který miluje rodinu.',
         age: 6,
@@ -63,7 +63,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-26T09:00:00'), new Date('2023-11-28T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00'), new Date('2023-11-22T03:00:00'), new Date('2023-11-22T15:00:00')],
     },
     {
-        photoSrc:dog1  ,
+        photoSrc:dog5  ,
         name: 'Bára',
         description: 'Bára je česká fenka, která je vždy připravena na dobrodružství.',
         age: 2,
@@ -85,7 +85,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
-        photoSrc:dog1  ,
+        photoSrc:dog5  ,
         name: 'Lucie',
         description: 'Lucie je temperamentní česká fenka, která miluje pozornost.',
         age: 2,
@@ -96,7 +96,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-26T09:00:00'), new Date('2023-11-28T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
-        photoSrc:dog1  ,
+        photoSrc:dog4  ,
         name: 'Benny',
         description: 'Benny je veselý a hravý český pes, který bude skvělým společníkem.',
         age: 4,
@@ -107,7 +107,7 @@ export var dogs:Dog[]=[  {
         availability: [new Date('2023-11-24T09:00:00'), new Date('2023-11-26T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
     },
     {
-        photoSrc:dog1  ,
+        photoSrc:dog2  ,
         name: 'Sofie',
         description: 'Sofie je česká fenka, která je vždy ochotná pomoci a miluje děti.',
         age: 3,
