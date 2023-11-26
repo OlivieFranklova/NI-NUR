@@ -9,7 +9,11 @@ import {Reservation} from "@/types/Reservation";
 
 export default function DogsPage(){
     // const dogsList:Dog[]=reservations.map((r)=>r.dog);
-    const storedReservations = localStorage.getItem('reservations');
+    let storedReservations = null;
+    if (typeof window !== 'undefined'){
+        storedReservations = localStorage.getItem('reservations');
+    }
+
     let res : Reservation[];
     if (storedReservations === null){
         res = [];

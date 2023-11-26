@@ -47,7 +47,9 @@ export default function ReservationsTable() {
         },
     ];
     const getReservations = () => {
-        const storedReservations = localStorage.getItem('reservations');
+        let storedReservations = null
+        if (typeof window !== 'undefined')
+            storedReservations = localStorage.getItem('reservations');
         const res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
 
         return res.map((r, index) => {
@@ -69,7 +71,9 @@ export default function ReservationsTable() {
     };
 
     const handleDelete = (reservation: any) => {
-        const storedReservations = localStorage.getItem('reservations');
+        let storedReservations = null
+        if (typeof window !== 'undefined')
+            storedReservations = localStorage.getItem('reservations');
         let res : Reservation[] = storedReservations ? JSON.parse(storedReservations) : [];
         res.splice(reservation.id, 1)
         localStorage.setItem('reservations', JSON.stringify(res))

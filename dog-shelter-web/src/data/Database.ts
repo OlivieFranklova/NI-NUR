@@ -16,7 +16,7 @@ export var dogs:Dog[]=[  {
     needForAttention: AttentionNeedEnum.Medium,
     size: SizeEnum.Medium,
     suitableForEveryone: true,
-    availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-22T09:00:00'), new Date('2023-11-29T09:00:00')],
+    availability: [new Date('2023-11-25T09:00:00'), new Date('2023-11-27T09:00:00'), new Date('2023-11-15T09:00:00'), new Date('2023-11-29T09:00:00'), new Date('2023-11-22T03:00:00'), new Date('2023-11-22T15:00:00')],
 },
     {
         photoSrc:dog4  ,

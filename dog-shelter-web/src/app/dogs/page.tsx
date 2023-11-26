@@ -14,7 +14,6 @@ import {Sort} from "@/types/filters/Sort";
 import {AvailabilityFilter} from "@/types/filters/AvailabilityFilter";
 const initialCardsPerPage=8;
 export default function DogsPage(){
-
     const [dogsList,setDogsList]=useState(dogs);
     const [cardsPerPage, setCardsPerPage] = useState(initialCardsPerPage);
 
@@ -25,9 +24,10 @@ export default function DogsPage(){
         new SuitabilityFilter(),
         new NeedForAttentionFilter()
     ])
-
-    if (!localStorage.getItem('reservations'))
-        localStorage.setItem('reservations', JSON.stringify(reservations))
+    if (typeof window !== 'undefined') {
+        if (!localStorage.getItem('reservations'))
+            localStorage.setItem('reservations', JSON.stringify(reservations))
+    }
 
     const handleLoadMore = () => {
         // Increase the number of cards to display by 4 when the "Load more" button is clicked
