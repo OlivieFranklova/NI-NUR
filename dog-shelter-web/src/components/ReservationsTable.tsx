@@ -11,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import EditIcon from '@mui/icons-material/Edit';
 import {Reservation} from "@/types/Reservation";
+import ReservationDialog from "@/components/ReservationDialog";
 
 
 export default function ReservationsTable() {
@@ -34,11 +35,10 @@ export default function ReservationsTable() {
                     <IconButton color="primary" onClick={() => handleEdit(params)}>
                         <EditIcon/>
                     </IconButton>
-
-
-                    <IconButton color="primary" onClick={() => handleReserve(params)}>
-                        <RepeatIcon/>
-                    </IconButton>
+                    
+                    <Button color="primary" variant="text" onClick={() => handleReserve(params)}>
+                        <RepeatIcon/> Venčit
+                    </Button>
                     <Button color="error" variant="text" onClick={() => handleDelete(params)}>
                         <DeleteIcon/> Smazat
                     </Button>
@@ -81,8 +81,12 @@ export default function ReservationsTable() {
         location.href = "/reservation?dog=" + dogName;
     };
 
-    const handleEditRes = (dogName : String, id: number) => {
-        location.href = "/reservation?dog=" + dogName + "&res=" + id;
+    const handleEditRes = (dogName : string, id: number) => {
+        //location.href = "/reservation?dog=" + dogName + "&res=" + id;
+        setDogId(id.toString())
+        setDogName(dogName)
+        setDialogOpen(true)
+
     };
 
     const handleReserve = (reservation: any) => {
@@ -90,6 +94,12 @@ export default function ReservationsTable() {
     };
 
     const [rows, setRows] = useState(getReservations());
+ const [dialogOpen,setDialogOpen]=useState(false);
+ const [dogId,setDogId]=useState("")
+    const [dogName,setDogName]=useState("")
+ function handleClose(){
+     setDialogOpen(false)
+ }
 
     return (
         <div style={{height: 400, width: '100%'}}>
@@ -103,6 +113,13 @@ export default function ReservationsTable() {
                     },
                 }}
                 pageSizeOptions={[5, 10]}
+            />
+            <ReservationDialog
+                open={dialogOpen}
+                handleClose={handleClose}
+                id={dogId}
+                dogName={dogName}
+
             />
         </div>
     );

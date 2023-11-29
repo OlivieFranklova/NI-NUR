@@ -97,7 +97,7 @@ export class Sort implements Filter {
         return new Sort(value)
     }
 
-    getCurrentChoice(): { key: any, value: {name:String, icon_src:StaticImageData| undefined} } {
+    getCurrentChoice(): { key: any, value: {name:string, icon_src:StaticImageData| undefined} } {
         if (this.sortField === undefined) {
             return Sort.defaultChoice
         }
@@ -107,11 +107,11 @@ export class Sort implements Filter {
         }) ?? Sort.defaultChoice
     }
 
-    filterName(): String {
+    filterName(): string {
         return Sort.filterName
     }
 
-    getChoices(): { key: any; value: {name:String, icon_src:StaticImageData| undefined} }[] {
+    getChoices(): { key: any; value: {name:string, icon_src:StaticImageData| undefined} }[] {
         return Sort.choices
     }
     resetFilter(): void {

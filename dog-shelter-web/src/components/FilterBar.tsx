@@ -10,8 +10,9 @@ import * as React from "react";
 import {csCZ} from "@mui/x-data-grid";
 import csLocale from "@fullcalendar/core/locales/cs";
 import 'dayjs/locale/cs';
+import {SortField} from "@/types/filters/Sort";
 
-export default function FilterBar({filters, onChange}: { filters: Filter[], onChange: (newFilter: Filter) => void }) {
+export default function FilterBar({filters, onChange}: { filters: Filter, onChange: (newFilter: Filter) => void }) {
     const styles = {
         menuItem: {
             height: '48px', // Set the desired height
