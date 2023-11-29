@@ -44,9 +44,9 @@ export default function FilterBar({filters, onChange}: { filters: Filter[], onCh
                         {filter.getChoices().map((f, k) => (
                             <MenuItem key={k} value={f.key} >
                                 <ListItem>
-                                {f.value.icon_src !== undefined &&
-                                    <ListItemIcon><Image src={f.value.icon_src} alt="Size Icon" height={20}/></ListItemIcon>}
-                                <ListItemText>{f.value.name}</ListItemText>
+                                    {f.value.icon_src !== undefined &&
+                                        <ListItemIcon><Image src={f.value.icon_src} alt="Size Icon" height={20}/></ListItemIcon>}
+                                    <ListItemText>{f.value.name}</ListItemText>
                                 </ListItem>
                             </MenuItem>
                         ))}

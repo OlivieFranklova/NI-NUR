@@ -4,6 +4,7 @@ import {StaticImageData} from "next/image";
 import  high_interest from '@/resources/icons/Interest=High.png';
 import medium_interest from '@/resources/icons/Interest=Medium.png';
 import small_interest from '@/resources/icons/Interest=Low.png';
+import {dogs} from "@/data/Database";
 
 
 export class NeedForAttentionFilter implements Filter {
@@ -46,20 +47,20 @@ export class NeedForAttentionFilter implements Filter {
         return new NeedForAttentionFilter(value)
     }
 
-    filterName(): String {
+    filterName(): string {
         return NeedForAttentionFilter.filterName;
     }
 
     getChoices(): {
         key: any;
-        value: {name:String, icon_src:StaticImageData| undefined}
+        value: {name:string, icon_src:StaticImageData| undefined}
     }[] {
         return NeedForAttentionFilter.choices;
     }
 
     getCurrentChoice(): {
         key: any;
-        value: {name:String, icon_src:StaticImageData| undefined}
+        value: {name:string, icon_src:StaticImageData| undefined}
     } {
         if (this.needForAttention=== undefined) {
             return NeedForAttentionFilter.defaultChoice
@@ -68,5 +69,9 @@ export class NeedForAttentionFilter implements Filter {
         return NeedForAttentionFilter.choices.find((choice) => {
             return choice.key == this.needForAttention
         }) ?? NeedForAttentionFilter.defaultChoice
+    }
+
+    resetFilter(): void {
+        this.needForAttention= undefined;
     }
 }

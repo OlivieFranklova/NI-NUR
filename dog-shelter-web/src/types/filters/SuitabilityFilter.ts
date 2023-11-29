@@ -40,20 +40,23 @@ export class SuitabilityFilter implements Filter {
         return new SuitabilityFilter(!!value);
     }
 
-    filterName(): String {
+    filterName(): string {
         return SuitabilityFilter.filterName;
     }
 
-    getChoices(): { key: any; value: { name: String, icon_src: StaticImageData| undefined } }[] {
+    getChoices(): { key: any; value: { name: string, icon_src: StaticImageData| undefined } }[] {
         return SuitabilityFilter.choices;
     }
 
     getCurrentChoice(): {
         key: any;
-        value: { name: String, icon_src: StaticImageData| undefined }
+        value: { name: string, icon_src: StaticImageData| undefined }
     } {
         return SuitabilityFilter.choices.find((value) => {
             return value.key == this.suitableForEveryone
         }) ?? SuitabilityFilter.defaultChoice
+    }
+    resetFilter(): void {
+        this.suitableForEveryone= true;
     }
 }

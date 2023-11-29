@@ -12,6 +12,7 @@ export class AvailabilityFilter implements Filter {
 
     static filterName = "Kdy je dostupný"
     static defaultChoice = { key: undefined, value: {name:AvailabilityFilter.filterName,icon_src:undefined} }
+
     static dateFormatter = new Intl.DateTimeFormat('cs-CZ', {
         day: '2-digit',
         month: '2-digit',
@@ -41,20 +42,20 @@ export class AvailabilityFilter implements Filter {
         return new AvailabilityFilter(value)
     }
 
-    filterName(): String {
+    filterName(): string {
         return AvailabilityFilter.filterName;
     }
 
     getChoices(): {
         key: any;
-        value: {name:String, icon_src:StaticImageData| undefined}
+        value: {name:string, icon_src:StaticImageData| undefined}
     }[] {
         return [];
     }
 
     getCurrentChoice(): {
         key: any;
-        value: {name:String, icon_src:StaticImageData| undefined}
+        value: {name:string, icon_src:StaticImageData| undefined}
     } {
         if (this.availability === undefined) {
             return AvailabilityFilter.defaultChoice
@@ -62,5 +63,8 @@ export class AvailabilityFilter implements Filter {
 
         const date = AvailabilityFilter.dateFormatter.format(this.availability)
         return { key: date, value: {name:date,icon_src:undefined} }
+    }
+    resetFilter(): void {
+        this.availability= undefined;
     }
 }

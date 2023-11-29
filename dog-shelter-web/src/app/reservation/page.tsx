@@ -34,7 +34,9 @@ export default function DogsPage() {
     const [dogsList,setDogsList]=useState(dogs);
     // Check if window is defined before using it
     const [urlParams, setUrlParams] = useState<URLSearchParams | null>(null);
-
+    const handleSelect = () => {
+        setActive(false)
+    };
     useEffect(() => {
         // Check if window is available (client-side rendering)
         if (typeof window !== 'undefined') {
@@ -220,11 +222,10 @@ export default function DogsPage() {
                             setActive(false)
                             reservationDate = arg.date
                         }}
-                        select={(arg: any) => {
-                            setActive(false)
-                        }}
+                        selectMirror={true}
+                        select={handleSelect}
                         // initialView='dayGridMonth'
-                        weekends={true}
+                        weekends={false}
                         // events={[{groupId: 'testGroupId',
                         //     start: dog.availability[0],
                         //     end: new Date(dog.availability[0].getFullYear(),dog.availability[0].getMonth(),dog.availability[0].getDate()+1),
@@ -236,7 +237,7 @@ export default function DogsPage() {
                         slotDuration={'01:00:00'}
                         allDaySlot={false}
                         events={events}
-                        slotMinTime={"06:00:00"}
+                        slotMinTime={"08:00:00"}
                         slotMaxTime={"19:00:00"}
                         selectAllow={selectAllow}
                     />

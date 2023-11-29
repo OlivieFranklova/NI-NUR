@@ -55,7 +55,7 @@ export class SizeFilter implements Filter {
         return new SizeFilter(value)
     }
 
-    getCurrentChoice(): { key: any, value: { name: String, icon_src: StaticImageData| undefined } } {
+    getCurrentChoice(): { key: any, value: { name: string, icon_src: StaticImageData| undefined } } {
         if (this.size === undefined) {
             return SizeFilter.defaultChoice
         }
@@ -65,11 +65,14 @@ export class SizeFilter implements Filter {
         }) ?? SizeFilter.defaultChoice
     }
 
-    filterName(): String {
+    filterName(): string {
         return SizeFilter.filterName
     }
 
-    getChoices(): { key: any; value: { name: String, icon_src: StaticImageData| undefined } }[] {
+    getChoices(): { key: any; value: { name: string, icon_src: StaticImageData| undefined } }[] {
         return SizeFilter.choices
+    }
+    resetFilter(): void {
+        this.size= undefined;
     }
 }

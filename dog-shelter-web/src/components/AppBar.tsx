@@ -41,30 +41,30 @@ function ResponsiveAppBar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h5"
-                    >
-                        Voříškov
-                    </Typography>
-                    <Box sx={{ flexGrow: 1 }}></Box>
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Link href="/dogs" >
+                    <Link href="/">
+                        <Typography
+                            variant="h5"
+                        >
+                            Voříškov
+                        </Typography></Link>
+                    <Box sx={{flexGrow: 1}}></Box>
+                    <Box sx={{flexGrow: 0}}>
+                        <Link href="/dogs">
                             {" "}
-                            <Typography variant="button" >
+                            <Typography variant="button">
                                 Venceni
                             </Typography>
                         </Link>
                         <Tab label="Adopce"/>
 
 
-
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{mt: '45px'}}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -80,17 +80,17 @@ function ResponsiveAppBar() {
                             onClose={handleCloseUserMenu}
                         >
 
-                                <MenuItem  onClick={handleCloseUserMenu}>
-                                    <Link href="/reservations" >
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Link href="/reservations">
                                     <Typography textAlign="center">Moje rezervace</Typography>
-                                    </Link>
-                                </MenuItem>
-                            <MenuItem  onClick={handleCloseUserMenu}>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseUserMenu}>
 
                                 <Typography textAlign="center">Upravit profil</Typography>
 
                             </MenuItem>
-                            <MenuItem  onClick={handleCloseUserMenu}>
+                            <MenuItem onClick={handleCloseUserMenu}>
 
                                 <Typography textAlign="center">Odhlasit se</Typography>
 
@@ -103,4 +103,5 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
+
 export default ResponsiveAppBar;

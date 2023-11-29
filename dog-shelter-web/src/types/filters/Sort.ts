@@ -114,4 +114,7 @@ export class Sort implements Filter {
     getChoices(): { key: any; value: {name:String, icon_src:StaticImageData| undefined} }[] {
         return Sort.choices
     }
+    resetFilter(): void {
+        this.sortField= undefined;
+    }
 }
